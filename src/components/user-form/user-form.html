@@ -1,0 +1,33 @@
+<form #userForm="ngForm">
+  <ion-item>
+    <ion-label floating color="primary">Username</ion-label>
+    <ion-input [(ngModel)]="user.username" name="username" type="text" #username="ngModel" required="">
+    </ion-input>
+  </ion-item>
+  <p [hidden]="username.valid || !submited" color="danger" padding-left>
+    El username es requerido
+  </p>
+  <ion-item>
+    <ion-label floating color="primary">Email</ion-label>
+    <ion-input [(ngModel)]="user.email" name="email" type="email" #email="ngModel" required="">
+    </ion-input>
+  </ion-item>
+  <p [hidden]="email.valid || !submited" color="danger" padding-left>
+    El email es requerido
+  </p>
+  <ion-item>
+    <ion-label floating color="primary">Password</ion-label>
+    <ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required="">
+    </ion-input>
+  </ion-item>
+  <p [hidden]="password.valid || !submited" color="danger" padding-left>
+    El password es requerido
+  </p>
+  <ion-row responsive-sm>
+    <ion-col>
+      <button ion-button [disabled]="!userForm.valid" (click)="processUser()" type="submit" color="primary" block>
+        {{submitBtn}}
+      </button>
+    </ion-col>
+  </ion-row>
+</form>

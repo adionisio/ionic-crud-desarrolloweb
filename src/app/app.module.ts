@@ -5,26 +5,46 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
+import { LoginPage } from '../pages/login/login';
+import { HttpModule } from '@angular/http';
+import { UsersProvider } from '../providers/users/users';
+import { UserAddPage } from '../pages/user-add/user-add';
+import { UserFormComponent } from '../components/user-form/user-form';
+import { UserDetailComponent } from '../components/user-detail/user-detail';
+import { UsersEditPage } from '../pages/users-edit/users-edit';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    LoginPage,
+    UserAddPage,
+    UserFormComponent,
+    UsersEditPage,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages: true
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    LoginPage,
+    UserAddPage,
+    UsersEditPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    UsersProvider
   ]
 })
 export class AppModule {}

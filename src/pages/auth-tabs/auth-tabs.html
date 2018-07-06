@@ -1,0 +1,10 @@
+<ion-tabs>
+    <ion-tab [root]="dashboardPageRoot" tabTitle="Dashboard page" tabIcon="home"></ion-tab>
+    <ion-tab [root]="profilePageRoot" tabTitle="Profile page" tabIcon="contact"></ion-tab>
+</ion-tabs>
+
+<ion-fab top right>
+    <button ion-fab mini color="danger" style="margin-top: 1px" (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+    </button>
+</ion-fab>
